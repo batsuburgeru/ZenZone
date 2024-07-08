@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/userListPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDD6C8">
+
+    <Button
+        android:id="@+id/userNextButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFEFE"
+        android:drawableTop="@drawable/left_arrow"
+        android:fontFamily="@font/sora_bold"
+        android:gravity="center"
+        android:paddingTop="18dp"
+        app:cornerRadius="75dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/outer_layout">
+
+        <TextView
+            android:id="@+id/all_users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/userListLabel"
+            android:textAppearance="@style/userListLabel"
+            android:gravity="top"
+            android:fontFamily="@font/sora_bold"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            >
+
+            <TextView
+                android:id="@+id/show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/show"
+                android:textAppearance="@style/show"
+                android:gravity="center">
+            </TextView>
+
+            <Spinner
+                style="@android:style/Widget.DeviceDefault.Light.Spinner"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:gravity="center">
+            </Spinner>
+
+            <TextView
+                android:id="@+id/entries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/entries"
+                android:textAppearance="@style/show"
+                android:gravity="center">
+            </TextView>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="@string/userListSearch"
+                android:background="@drawable/user_list_search"
+                android:fontFamily="@font/sora_light"
+                android:textSize="16sp"
+                android:padding="1.5dp"
+                android:drawableStart="@drawable/search">
+            </EditText>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

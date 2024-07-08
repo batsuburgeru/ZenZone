@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userDashboard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/user_background"
+    android:clipToOutline="true"
+    >
+
+    <Button
+        android:id="@+id/userLogoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="33dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#C67C4E"
+        android:fontFamily="@font/sora_bold"
+        android:gravity="center"
+        android:text="@string/userLogoutButton"
+        app:cornerRadius="24dp" />
+
+    <TextView
+        android:id="@+id/userIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="394dp"
+        android:text="@string/userIntro"
+        android:textAppearance="@style/userIntro"
+        android:gravity="top"
+        android:fontFamily="@font/sora_bold"
+        />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="445dp"
+        android:text="JOHN"
+        android:textAppearance="@style/userIntro"
+        android:gravity="top"
+        android:fontFamily="@font/sora_bold"
+        />
+
+    <TextView
+        android:id="@+id/welcome_to_"
+        android:layout_width="181dp"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="510dp"
+        android:text="@string/userDesc"
+        android:textAppearance="@style/userDesc"
+        android:gravity="top"
+        android:fontFamily="@font/sora"
+        />
+
+    <Button
+        android:id="@+id/userNextButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="445dp"
+        android:layout_marginEnd="33dp"
+        android:backgroundTint="#EDD6C8"
+        android:drawableTop="@drawable/right_arrow"
+        android:fontFamily="@font/sora_bold"
+        android:gravity="center"
+        android:paddingTop="18dp"
+        app:cornerRadius="75dp" />
+
+
+
+
+
+
+</RelativeLayout>
