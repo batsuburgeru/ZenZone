@@ -2,5 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/sora_light</item>
+        <item>@font/sora_semibold</item>
     </array>
 </resources>
