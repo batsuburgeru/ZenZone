@@ -6,4 +6,9 @@
     <string name="loginPassword">Password</string>
     <string name="loginForgotPass">Forgot Password?</string>
     <string name="loginButton">LOGIN</string>
+
+    <string name="userLogoutButton">LOGOUT</string>
+    <string name="userIntro">Welcome,</string>
+    <string name="userDesc">Welcome to our cozy corner, where everything is delightful for you.</string>
+
 </resources>
