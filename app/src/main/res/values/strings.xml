@@ -11,4 +11,8 @@
     <string name="userIntro">Welcome,</string>
     <string name="userDesc">Welcome to our cozy corner, where everything is delightful for you.</string>
 
+    <string name="userListLabel">All Users</string>
+    <string name="show">Show</string>
+    <string name="entries">entries</string>
+    <string name="userListSearch">Search Username</string>
 </resources>
