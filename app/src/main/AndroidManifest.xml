@@ -17,6 +17,9 @@
             android:exported="false" />
         <activity
             android:name=".adminDashboard"
+            android:exported="false"/>
+        <activity
+            android:name=".userDashboard"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
