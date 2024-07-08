@@ -38,11 +38,11 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/nameGreetingText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sora_semibold"
-                        android:text="JOHN"
+                        android:text="USERNAME"
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -135,7 +135,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/usernamePassword"
+                    android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="9dp"
@@ -285,7 +285,7 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/updateUserButton"
+                    android:id="@+id/updateUserBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#C67C4E"
@@ -351,7 +351,7 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/delUserButton"
+                    android:id="@+id/delUserBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#C67C4E"
