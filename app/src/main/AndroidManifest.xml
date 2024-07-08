@@ -13,13 +13,13 @@
         android:theme="@style/Theme.Cpe408FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".userDashboard"
+            android:exported="false" />
+        <activity
             android:name=".superAdminDashboard"
             android:exported="false" />
         <activity
             android:name=".adminDashboard"
-            android:exported="false"/>
-        <activity
-            android:name=".userDashboard"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
