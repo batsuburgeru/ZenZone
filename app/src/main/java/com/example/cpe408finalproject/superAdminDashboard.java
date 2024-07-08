@@ -1,6 +1,7 @@
 package com.example.cpe408finalproject;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,6 +53,66 @@ public class superAdminDashboard extends AppCompatActivity {
         delUser = findViewById(R.id.delUserInput);
         delSubmit = findViewById(R.id.delUserBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
+
+        addSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = addUsername.getText().toString();
+                String password = addPassword.getText().toString();
+                int userType = userTypeRad.getCheckedRadioButtonId();
+
+                if (username.isEmpty() || password.isEmpty() || userType == -1) {
+                    showDialog("Please enter the required information.");
+                }
+                else {
+                    showDialog("Success! User added.");
+                    userTypeRad.clearCheck();
+                    addUsername.setText("");
+                    addPassword.setText("");
+                }
+            }
+        });
+
+        updateSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String currentUser = updateCurrentUsername.getText().toString();
+                String newUser = updateNewUsername.getText().toString();
+                String password = updateNewPass.getText().toString();
+
+                if (currentUser.isEmpty() || newUser.isEmpty() || password.isEmpty()) {
+                    showDialog("Please enter the required information.");
+                }
+                else {
+                    showDialog("Success! User information updated.");
+                    updateCurrentUsername.setText("");
+                    updateNewUsername.setText("");
+                    updateNewPass.setText("");
+                }
+            }
+        });
+
+        delSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = delUser.getText().toString();
+
+                if (username.isEmpty()) {
+                    showDialog("Username cannot be blank!");
+                }
+                else {
+                    showDialog("Success! User " + username+ " successfully deleted.");
+                    delUser.setText("");
+                }
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(superAdminDashboard.this, MainActivity.class));
+            }
+        });
     }
     private void showDialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(superAdminDashboard.this);

@@ -1,7 +1,9 @@
 package com.example.cpe408finalproject;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,7 +41,7 @@ public class adminDashboard extends AppCompatActivity {
         });
 
         nameGreeting = findViewById(R.id.nameGreetingText);
-        addUsername = findViewById(R.id.usernameInput);
+        addUsername = findViewById(R.id.newUsernameInput);
         addPassword = findViewById(R.id.passwordInput);
         addSubmit = findViewById(R.id.addUserBtn);
         updateCurrentUsername = findViewById(R.id.currentUsernameInput);
@@ -49,6 +51,64 @@ public class adminDashboard extends AppCompatActivity {
         delUser = findViewById(R.id.delUserInput);
         delSubmit = findViewById(R.id.delUserBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
+
+        addSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = addUsername.getText().toString();
+                String password = addPassword.getText().toString();
+
+                if (username.isEmpty() || password.isEmpty()) {
+                    showDialog("Please enter the required information.");
+                }
+                else {
+                    showDialog("Success! User added.");
+                    addUsername.setText("");
+                    addPassword.setText("");
+                }
+            }
+        });
+
+        updateSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String currentUser = updateCurrentUsername.getText().toString();
+                String newUser = updateNewUsername.getText().toString();
+                String password = updateNewPass.getText().toString();
+
+                if (currentUser.isEmpty() || newUser.isEmpty() || password.isEmpty()) {
+                    showDialog("Please enter the required information.");
+                }
+                else {
+                    showDialog("Success! User information updated.");
+                    updateCurrentUsername.setText("");
+                    updateNewUsername.setText("");
+                    updateNewPass.setText("");
+                }
+            }
+        });
+
+        delSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = delUser.getText().toString();
+
+                if (username.isEmpty()) {
+                    showDialog("Username cannot be blank!");
+                }
+                else {
+                    showDialog("Success! User " + username+ " successfully deleted.");
+                    delUser.setText("");
+                }
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(adminDashboard.this, MainActivity.class));
+            }
+        });
     }
     private void showDialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(adminDashboard.this);
