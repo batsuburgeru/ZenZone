@@ -16,6 +16,12 @@
             android:name=".userDashboard"
             android:exported="false" />
         <activity
+            android:name=".superAdminDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".adminDashboard"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
