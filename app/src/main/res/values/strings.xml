@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">cpe408FinalProject</string>
+    <string name="loginWelcomeBack">Welcome Back</string>
+    <string name="loginIntro">Login in to your account</string>
+    <string name="loginUsername">Username</string>
+    <string name="loginPassword">Password</string>
+    <string name="loginForgotPass">Forgot Password?</string>
+    <string name="loginButton">LOGIN</string>
+</resources>
