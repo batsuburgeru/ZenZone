@@ -50,6 +50,7 @@ public class superAdminDashboard extends AppCompatActivity {
     private EditText delUser;
     private Button delSubmit;
     private Button logoutBtn;
+    private Button viewUserBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,19 @@ public class superAdminDashboard extends AppCompatActivity {
         delUser = findViewById(R.id.delUserInput);
         delSubmit = findViewById(R.id.delUserBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
+        viewUserBtn = findViewById(R.id.viewUserBtn);
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        nameGreeting.setText(username);
+
+        viewUserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewUser = new Intent(superAdminDashboard.this, UserListPage.class);
+                startActivity(viewUser);
+            }
+        });
 
         addSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
