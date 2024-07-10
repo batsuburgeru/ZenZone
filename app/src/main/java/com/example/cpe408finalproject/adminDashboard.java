@@ -69,6 +69,10 @@ public class adminDashboard extends AppCompatActivity {
         delSubmit = findViewById(R.id.delUserBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
 
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        nameGreeting.setText(username);
+
         addSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
