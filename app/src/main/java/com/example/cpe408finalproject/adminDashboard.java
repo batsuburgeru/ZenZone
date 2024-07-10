@@ -57,6 +57,7 @@ public class adminDashboard extends AppCompatActivity {
             return insets;
         });
 
+
         nameGreeting = findViewById(R.id.nameGreetingText);
         addUsername = findViewById(R.id.usernameInput);
         addPassword = findViewById(R.id.passwordInput);
@@ -68,6 +69,10 @@ public class adminDashboard extends AppCompatActivity {
         delUser = findViewById(R.id.delUserInput);
         delSubmit = findViewById(R.id.delUserBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        nameGreeting.setText(username);
 
         addSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
