@@ -299,67 +299,64 @@
                     </TextView>
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="43.7dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/user_list_divider"
-                        android:clickable="true"
-                        android:drawableStart="@drawable/trash"
-                        android:fontFamily="@font/sora_bold"
+                        android:padding="10dp"
+                        android:text="John Doe"
+                        android:textColor="#000000"
                         android:gravity="center"
-                        android:paddingStart="30dp"
+                        android:fontFamily="@font/sora"
                         android:textSize="16sp">
                     </TextView>
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="43.7dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/user_list_divider"
-                        android:clickable="true"
-                        android:drawableStart="@drawable/trash"
-                        android:fontFamily="@font/sora_bold"
+                        android:padding="10dp"
+                        android:text="John Doe"
+                        android:textColor="#000000"
                         android:gravity="center"
-                        android:paddingStart="30dp"
+                        android:fontFamily="@font/sora"
                         android:textSize="16sp">
                     </TextView>
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="43.7dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/user_list_divider"
-                        android:clickable="true"
-                        android:drawableStart="@drawable/trash"
-                        android:fontFamily="@font/sora_bold"
+                        android:padding="10dp"
+                        android:text="John Doe"
+                        android:textColor="#000000"
                         android:gravity="center"
-                        android:paddingStart="30dp"
+                        android:fontFamily="@font/sora"
                         android:textSize="16sp">
                     </TextView>
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="43.7dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/user_list_divider"
-                        android:clickable="true"
-                        android:drawableStart="@drawable/trash"
-                        android:fontFamily="@font/sora_bold"
+                        android:padding="10dp"
+                        android:text="John Doe"
+                        android:textColor="#000000"
                         android:gravity="center"
-                        android:paddingStart="30dp"
+                        android:fontFamily="@font/sora"
                         android:textSize="16sp">
                     </TextView>
-
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="43.7dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/user_list_divider"
-                        android:clickable="true"
-                        android:drawableStart="@drawable/trash"
-                        android:drawingCacheQuality="low"
-                        android:fontFamily="@font/sora_bold"
+                        android:padding="10dp"
+                        android:text="John Doe"
+                        android:textColor="#000000"
                         android:gravity="center"
-                        android:paddingStart="30dp"
+                        android:fontFamily="@font/sora"
                         android:textSize="16sp">
                     </TextView>
-
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

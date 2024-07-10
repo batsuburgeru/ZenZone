@@ -17,5 +17,5 @@
     <string name="userListSearch">Search Username</string>
     <string name="userListUserLabel">Username</string>
     <string name="userListPassLabel">Password</string>
-    <string name="userListActionLabel">Action</string>
+    <string name="userListActionLabel">Role</string>
 </resources>
