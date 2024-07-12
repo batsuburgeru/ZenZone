@@ -88,16 +88,38 @@
                 android:paddingEnd="15dp"
                 android:paddingBottom="10dp">
 
-                <TextView
-                    android:id="@+id/addHeader"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:fontFamily="@font/sora_bold"
-                    android:text="Add New User"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_height="52dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addHeader"
+                        android:layout_width="242dp"
+                        android:layout_height="34dp"
+                        android:layout_marginBottom="7dp"
+                        android:fontFamily="@font/sora_bold"
+                        android:text="Add New User"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/viewUserBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="15dp"
+                        android:backgroundTint="#C67C4E"
+                        android:fontFamily="@font/sora_semibold"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="11dp"
+                        android:text="USER LIST"
+                        android:textSize="14sp"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/usernameText"
@@ -180,19 +202,6 @@
                     app:cornerRadius="10dp" />
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/viewUserBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="15dp"
-                android:backgroundTint="#C67C4E"
-                android:fontFamily="@font/sora_semibold"
-                android:text="VIEW USERS"
-                android:textSize="14sp"
-                app:cornerRadius="10dp" />
 
             <TextView
                 android:id="@+id/updateHeader"
