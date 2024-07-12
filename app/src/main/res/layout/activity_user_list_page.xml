@@ -25,9 +25,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/outer_layout">
 
@@ -70,6 +70,7 @@
             <Spinner
                 style="@android:style/Widget.DeviceDefault.Light.Spinner"
                 android:layout_width="35dp"
+                android:enabled="false"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:gravity="center">
@@ -86,10 +87,12 @@
             </TextView>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="@string/userListSearch"
+                android:hint="@string/userListSearch"
+                android:inputType="none"
+                android:enabled="false"
                 android:background="@drawable/user_list_search"
                 android:fontFamily="@font/sora_light"
                 android:textSize="16sp"
@@ -118,141 +121,96 @@
                     android:id="@+id/tableLayout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
+                    <!--Table heading-->
                     <TableRow>
-                        <LinearLayout
+                        <TextView
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="horizontal"                    >
-
-                            <TextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@drawable/user_list_divider"
-                                android:fontFamily="@font/sora_bold"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="@string/userListUserLabel"
-                                android:textColor="#000000"
-                                android:textSize="16sp">
-                            </TextView>
-                            <TextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@drawable/user_list_divider"
-                                android:fontFamily="@font/sora_bold"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="@string/userListPassLabel"
-                                android:textColor="#000000"
-                                android:textSize="16sp">
-                            </TextView>
-                            <TextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@drawable/user_list_divider"
-                                android:fontFamily="@font/sora_bold"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="@string/userListActionLabel"
-                                android:textColor="#000000"
-                                android:textSize="16sp">
-                            </TextView>
-                        </LinearLayout>
+                            android:background="@drawable/user_list_divider"
+                            android:fontFamily="@font/sora_bold"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="@string/userListUserLabel"
+                            android:textColor="#000000"
+                            android:textSize="16sp">
+                        </TextView>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/user_list_divider"
+                            android:fontFamily="@font/sora_bold"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="@string/userListPassLabel"
+                            android:textColor="#000000"
+                            android:textSize="16sp">
+                        </TextView>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/user_list_divider"
+                            android:fontFamily="@font/sora_bold"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="@string/userListActionLabel"
+                            android:textColor="#000000"
+                            android:textSize="16sp">
+                        </TextView>
                     </TableRow>
+
+                    <!--User Data-->
+<!--                    <TableRow-->
+<!--                        android:layout_width="fill_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        >-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/username"-->
+<!--                            android:layout_width="fill_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:background="@drawable/user_list_divider"-->
+<!--                            android:padding="10dp"-->
+<!--                            android:text="John Doe"-->
+<!--                            android:textColor="#000000"-->
+<!--                            android:gravity="center"-->
+<!--                            android:fontFamily="@font/sora"-->
+<!--                            android:textSize="16sp">-->
+<!--                        </TextView>-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/password"-->
+<!--                            android:layout_width="fill_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:background="@drawable/user_list_divider"-->
+<!--                            android:padding="10dp"-->
+<!--                            android:text="John Doe"-->
+<!--                            android:textColor="#000000"-->
+<!--                            android:gravity="center"-->
+<!--                            android:fontFamily="@font/sora"-->
+<!--                            android:textSize="16sp">-->
+<!--                        </TextView>-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/role"-->
+<!--                            android:layout_width="fill_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:background="@drawable/user_list_divider"-->
+<!--                            android:padding="10dp"-->
+<!--                            android:text="John Doe"-->
+<!--                            android:textColor="#000000"-->
+<!--                            android:gravity="center"-->
+<!--                            android:fontFamily="@font/sora"-->
+<!--                            android:textSize="16sp">-->
+<!--                        </TextView>-->
+<!--                    </TableRow>-->
                 </TableLayout>
 
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/user_list_divider"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/user_list_divider"
-                        android:padding="10dp"
-                        android:text="John Doe"
-                        android:textColor="#000000"
-                        android:gravity="center"
-                        android:fontFamily="@font/sora"
-                        android:textSize="16sp">
-                    </TextView>
-                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
