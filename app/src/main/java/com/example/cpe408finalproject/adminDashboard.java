@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
@@ -135,55 +136,66 @@ public class adminDashboard extends AppCompatActivity {
 
                 if (currentUser.isEmpty() || newUser.isEmpty() || password.isEmpty()) {
                     showDialog("Please enter the required information.");
+                } else {
+                    Query query = db.collection("users").whereEqualTo("username", currentUser);
+                    query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                if (task.getResult().isEmpty()) {
+                                    // Username does not exist
+                                    showDialog("Username does not exist");
+                                } else {
+                                    DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                                    DocumentReference documentReference = document.getReference();
+
+                                    db.collection("users")
+                                            .whereEqualTo("username", newUser)
+                                            .get()
+                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                    if (task.isSuccessful()) {
+                                                        if (task.getResult().isEmpty()) {
+                                                            Map<String, Object> users = new HashMap<>();
+                                                            users.put("username", newUser);
+                                                            users.put("password", password);
+
+                                                            documentReference.update(users)
+                                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                        @Override
+                                                                        public void onSuccess(Void unused) {
+                                                                            Log.w(TAG, "Updated user");
+                                                                            showDialog("Success! User information updated.");
+                                                                            updateCurrentUsername.setText("");
+                                                                            updateNewUsername.setText("");
+                                                                            updateNewPass.setText("");
+                                                                        }
+                                                                    })
+                                                                    .addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            Log.w(TAG, "Update Failed", e);
+                                                                            showDialog("Failed! User information not updated.");
+                                                                        }
+                                                                    });
+                                                        } else {
+                                                            showDialog("Username Already Taken");
+                                                        }
+                                                    } else {
+                                                        Log.w(TAG, "Error checking new username: ", task.getException());
+                                                    }
+                                                }
+                                            });
+                                }
+                            } else {
+                                Log.w("TAG", "Error checking current username: ", task.getException());
+                            }
+                        }
+                    });
                 }
-                else {
-                    db.collection("users")
-                            .whereEqualTo("username", currentUser)
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                                        DocumentReference documentReference = document.getReference();
-                                        if(task.getResult().isEmpty()){
-                                            Log.w(TAG, "Updating Failed");
-                                            showDialog("User does not exist");
-                                        }
-                                        else
-                                        {
-                                            db.collection("users")
-                                                .whereEqualTo("username", newUser)
-                                                    .get()
-                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                            if (task.isSuccessful()){
-                                                                if (task.getResult().isEmpty()){
-                                                                    Map<String,Object> users = new HashMap<>();
-                                                                    users.put("username", newUser);
-                                                                    users.put("password", password);
-                                                                    documentReference.update(users)
-                                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                                @Override
-                                                                                public void onSuccess(Void unused) {
-                                                                                    Log.w(TAG, "Updated user");
-                                                                                    showDialog("Success! User information updated.");
-                                                                                    updateCurrentUsername.setText("");
-                                                                                    updateNewUsername.setText("");
-                                                                                    updateNewPass.setText("");
-                                                                                }
-                                                                            })
-                                                                            .addOnFailureListener(new OnFailureListener() {
-                                                                                @Override
-                                                                                public void onFailure(@NonNull Exception e) {
-                                                                                    Log.w(TAG, "Updated Failed");
-                                                                                    showDialog("Failed! User information not updated.");
-                                                                                }
-                                                                            });
-                                                                } else{ showDialog("Username Already Taken");}}}});}
-                                    } else { showDialog("User Information Error");}}
-                            });}}});
+            }
+        });
 
         delSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
