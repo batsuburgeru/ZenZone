@@ -116,6 +116,9 @@ public class superAdminDashboard extends AppCompatActivity {
                                                 .add(users);
                                         Log.w(TAG, "User added");
                                         showDialog("User has been added successfully");
+                                        addUsername.setText("");
+                                        addPassword.setText("");
+                                        userTypeRad.clearCheck();
                                     } else {
                                         showDialog("Username has already been taken");
                                     }
@@ -168,6 +171,9 @@ public class superAdminDashboard extends AppCompatActivity {
                                                                                 public void onSuccess(Void unused) {
                                                                                     Log.w(TAG, "Updated user");
                                                                                     showDialog("Success! User information updated.");
+                                                                                    updateCurrentUsername.setText("");
+                                                                                    updateNewUsername.setText("");
+                                                                                    updateNewPass.setText("");
                                                                                 }
                                                                             })
                                                                             .addOnFailureListener(new OnFailureListener() {
@@ -225,6 +231,7 @@ public class superAdminDashboard extends AppCompatActivity {
                                                             public void onSuccess(Void unused) {
                                                                 Log.w(TAG, "Delete success");
                                                                 showDialog("Success! User " + username + " successfully deleted.");
+                                                                delUser.setText("");
                                                             }
                                                         })
                                                         .addOnFailureListener(new OnFailureListener() {

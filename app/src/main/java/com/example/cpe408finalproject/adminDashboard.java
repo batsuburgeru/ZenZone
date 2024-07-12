@@ -101,6 +101,8 @@ public class adminDashboard extends AppCompatActivity {
                                                     .add(users);
                                             Log.w(TAG, "User added");
                                             showDialog("User has been added successfully");
+                                            addUsername.setText("");
+                                            addPassword.setText("");
                                         } else { showDialog("Username has already been taken");}
                                     }
                                 }
@@ -149,6 +151,9 @@ public class adminDashboard extends AppCompatActivity {
                                                                                 public void onSuccess(Void unused) {
                                                                                     Log.w(TAG, "Updated user");
                                                                                     showDialog("Success! User information updated.");
+                                                                                    updateCurrentUsername.setText("");
+                                                                                    updateNewUsername.setText("");
+                                                                                    updateNewPass.setText("");
                                                                                 }
                                                                             })
                                                                             .addOnFailureListener(new OnFailureListener() {
@@ -161,6 +166,7 @@ public class adminDashboard extends AppCompatActivity {
                                                                 } else{ showDialog("Username Already Taken");}}}});}
                                     } else { showDialog("User Information Error");}}
                             });}}});
+
         delSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -188,9 +194,11 @@ public class adminDashboard extends AppCompatActivity {
                                         } else {
                                             DocumentSnapshot document = task.getResult().getDocuments().get(0);
                                             String superAdmin = "superAdmin";
+                                            String admin = "admin";
                                             String role = Objects.requireNonNull(document.get("role")).toString();
-                                            if (superAdmin.equals(role)) {
+                                            if (superAdmin.equals(role) || admin.equals(role)) {
                                                 Log.w(TAG, "User superAdmin");
+                                                Log.w(TAG, "User admin");
                                                 showDialog("Unauthorized deletion");
                                             } else {
                                                 DocumentReference documentReference = document.getReference();
@@ -199,7 +207,8 @@ public class adminDashboard extends AppCompatActivity {
                                                             @Override
                                                             public void onSuccess(Void unused) {
                                                                 Log.w(TAG, "Delete success");
-                                                                showDialog("Success! User " + username+ " successfully deleted.");
+                                                                showDialog("Success! User " + username + " successfully deleted.");
+                                                                delUser.setText("");
                                                             }
                                                         })
                                                         .addOnFailureListener(new OnFailureListener() {
