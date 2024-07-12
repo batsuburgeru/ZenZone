@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cpe408FinalProject</string>
+    <string name="app_name">Zen Zone</string>
     <string name="loginWelcomeBack">Welcome Back</string>
     <string name="loginIntro">Login in to your account</string>
     <string name="loginUsername">Username</string>
