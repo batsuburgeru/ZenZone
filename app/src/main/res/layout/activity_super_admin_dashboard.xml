@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sora_light"
                         android:text="Hello,"
-                        android:textColor="#000000"
+                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sora_semibold"
                         android:text="USERNAME"
-                        android:textColor="#000000"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -54,14 +54,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="17dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#C67C4E"
+                    android:backgroundTint="@color/darkOrange"
                     android:fontFamily="@font/sora_semibold"
                     android:paddingLeft="11dp"
                     android:paddingTop="9dp"
                     android:paddingRight="11dp"
                     android:paddingBottom="9dp"
                     android:text="Logout"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     app:cornerRadius="10dp" />
 
@@ -100,7 +100,7 @@
                         android:layout_marginBottom="7dp"
                         android:fontFamily="@font/sora_bold"
                         android:text="Add New User"
-                        android:textColor="#000000"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -110,7 +110,7 @@
                         android:layout_height="50dp"
                         android:layout_marginStart="6dp"
                         android:layout_marginBottom="15dp"
-                        android:backgroundTint="#C67C4E"
+                        android:backgroundTint="@color/darkOrange"
                         android:fontFamily="@font/sora_semibold"
                         android:paddingStart="10dp"
                         android:paddingTop="10dp"
@@ -128,7 +128,7 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/sora"
                     android:text="Username"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -143,7 +143,7 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <TextView
@@ -153,7 +153,7 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/sora"
                     android:text="Password"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -167,7 +167,7 @@
                     android:hint="Enter password"
                     android:inputType="textPassword"
                     android:paddingStart="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <RadioGroup
@@ -195,7 +195,7 @@
                     android:id="@+id/addUserBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#C67C4E"
+                    android:backgroundTint="@color/darkOrange"
                     android:fontFamily="@font/sora_semibold"
                     android:text="ADD USER"
                     android:textSize="14sp"
@@ -212,7 +212,7 @@
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:text="Update User Information"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -221,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginEnd="17dp"
-                android:background="#C67C4E" />
+                android:background="@color/darkOrange" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -238,7 +238,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/sora"
                     android:text="Current Username"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -253,7 +253,7 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <TextView
@@ -263,7 +263,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/sora"
                     android:text="New Username"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -278,7 +278,7 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <TextView
@@ -288,7 +288,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/sora"
                     android:text="New Password"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -303,14 +303,14 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/updateUserBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#C67C4E"
+                    android:backgroundTint="@color/darkOrange"
                     android:fontFamily="@font/sora_semibold"
                     android:text="SAVE CHANGES"
                     android:textSize="14sp"
@@ -327,7 +327,7 @@
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:text="Delete User Data"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -336,7 +336,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginEnd="17dp"
-                android:background="#C67C4E" />
+                android:background="@color/darkOrange" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -355,7 +355,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/sora"
                     android:text="Enter Username"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <EditText
@@ -370,14 +370,14 @@
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/delUserBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#C67C4E"
+                    android:backgroundTint="@color/darkOrange"
                     android:fontFamily="@font/sora_semibold"
                     android:text="REMOVE USER"
                     android:textSize="14sp"
