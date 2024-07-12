@@ -85,9 +85,9 @@ public class adminDashboard extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        nameGreeting.setText(username);
+//        Intent intent = getIntent();
+//        String username = intent.getStringExtra("username");
+//        nameGreeting.setText(username);
 
         addSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
