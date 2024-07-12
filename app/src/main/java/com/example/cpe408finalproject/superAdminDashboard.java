@@ -81,12 +81,15 @@ public class superAdminDashboard extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
+        String role = intent.getStringExtra("role");
         nameGreeting.setText(username);
 
         viewUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent viewUser = new Intent(superAdminDashboard.this, UserListPage.class);
+                viewUser.putExtra("username", username);
+                viewUser.putExtra("role", role);
                 startActivity(viewUser);
             }
         });

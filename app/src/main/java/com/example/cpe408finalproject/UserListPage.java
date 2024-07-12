@@ -2,6 +2,7 @@ package com.example.cpe408finalproject;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +53,10 @@ public class UserListPage extends AppCompatActivity {
 
         TableLayout tableLayout = findViewById(R.id.tableLayout);
 
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        String userRole = intent.getStringExtra("role");
+
         userNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,14 +75,21 @@ public class UserListPage extends AppCompatActivity {
                                 String username = document.getString("username");
                                 String password = document.getString("password");
                                 String role = document.getString("role");
-                                if (role.equals("superAdmin")){
-                                    role = "Super Admin";
+
+                                assert userRole != null;
+                                assert role != null;
+
+                                if (role.equals("user")){
+                                    role = "User";
+                                    addTableRow(tableLayout, username, password, role);
                                 } else if (role.equals("admin")){
                                     role = "Admin";
-                                } else {
-                                    role = "User";
+                                    addTableRow(tableLayout, username, password, role);
+                                } else if (userRole.equals("superAdmin")){
+                                    role = "Super Admin";
+                                    addTableRow(tableLayout, username, password, role);
                                 }
-                                addTableRow(tableLayout, username, password, role);
+
                             }
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
