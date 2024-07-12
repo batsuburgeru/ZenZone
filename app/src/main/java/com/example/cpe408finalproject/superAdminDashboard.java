@@ -32,6 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class superAdminDashboard extends AppCompatActivity {
 
@@ -124,7 +125,6 @@ public class superAdminDashboard extends AppCompatActivity {
             }
         }
     });
-
         updateSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,49 +143,62 @@ public class superAdminDashboard extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                                        DocumentReference documentReference = document.getReference();
                                         if(task.getResult().isEmpty()){
                                             Log.w(TAG, "Updating Failed");
                                             showDialog("User does not exist");
                                         }
                                         else
                                         {
-                                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                                            DocumentReference documentReference = document.getReference();
-                                            Map<String,Object> users = new HashMap<>();
-                                            users.put("username", newUser);
-                                            users.put("password", password);
-                                            documentReference.update(users)
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            db.collection("users")
+                                                    .whereEqualTo("username", newUser)
+                                                    .get()
+                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                         @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            Log.w(TAG, "Updated user");
-                                                            showDialog("Success! User information updated.");
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                            if (task.isSuccessful()){
+                                                                if (task.getResult().isEmpty()){
+                                                                    Map<String,Object> users = new HashMap<>();
+                                                                    users.put("username", newUser);
+                                                                    users.put("password", password);
+                                                                    documentReference.update(users)
+                                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                @Override
+                                                                                public void onSuccess(Void unused) {
+                                                                                    Log.w(TAG, "Updated user");
+                                                                                    showDialog("Success! User information updated.");
+                                                                                }
+                                                                            })
+                                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                                @Override
+                                                                                public void onFailure(@NonNull Exception e) {
+                                                                                    Log.w(TAG, "Updated Failed");
+                                                                                    showDialog("Failed! User information not updated.");
+                                                                                }
+                                                                            });
+                                                                } else{ showDialog("Username Already Taken");}
+                                                            }
                                                         }
-                                                    })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Log.w(TAG, "Updated Failed");
-                                                            showDialog("Failed! User information not updated.");
-                                                        }
-                                                    });}
-                                    } else { showDialog("User Information Error");}
-                                }
+                                                    });
+                                        }
+                                    } else { showDialog("User Information Error");}}
                             });
-
                 }
             }
         });
-
         delSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = delUser.getText().toString();
+                Intent intent = getIntent();
+                String serverUser = intent.getStringExtra("username");
 
                 if (username.isEmpty()) {
                     showDialog("Username cannot be blank!");
-                }
-                else {
+                } else if (username.equals(serverUser)) {
+                    showDialog("Cannot delete own account!");
+                } else {
                     db.collection("users")
                             .whereEqualTo("username", username)
                             .get()
@@ -199,22 +212,29 @@ public class superAdminDashboard extends AppCompatActivity {
                                         }
                                         else {
                                             DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                                            DocumentReference documentReference = document.getReference();
-                                            documentReference.delete()
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-                                                            Log.w(TAG, "Delete success");
-                                                            showDialog("Success! User " + username+ " successfully deleted.");
-                                                        }
-                                                    })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Log.w(TAG, "Delete Failed");
-                                                            showDialog("Deletion unsuccessful");
-                                                        }
-                                                    });
+                                            String superAdmin = "superAdmin";
+                                            String role = Objects.requireNonNull(document.get("role")).toString();
+                                            if (superAdmin.equals(role)) {
+                                                Log.w(TAG, "User superAdmin");
+                                                showDialog("Cannot delete superAdmin");
+                                            } else {
+                                                DocumentReference documentReference = document.getReference();
+                                                documentReference.delete()
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                Log.w(TAG, "Delete success");
+                                                                showDialog("Success! User " + username + " successfully deleted.");
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+                                                                Log.w(TAG, "Delete Failed");
+                                                                showDialog("Deletion unsuccessful");
+                                                            }
+                                                        });
+                                            }
                                         }
                                     } else { Log.w(TAG, "Unknown Error"); showDialog("Error Detected");}
                                 }
