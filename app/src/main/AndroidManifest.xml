@@ -13,17 +13,23 @@
         android:theme="@style/Theme.Cpe408FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".UserListPage"
+            android:exported="false" />
+        <activity
             android:name=".userDashboard"
             android:exported="false" />
         <activity
             android:name=".superAdminDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".adminDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

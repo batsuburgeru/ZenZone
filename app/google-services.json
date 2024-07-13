@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "593242830970",
+    "project_id": "final-project-emerging-tech",
+    "storage_bucket": "final-project-emerging-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593242830970:android:ab7faca66ee206e615e3c3",
+        "android_client_info": {
+          "package_name": "com.example.cpe408finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQWVdmBIYncDzcL3F3nhM-yJUq0zqhpiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
